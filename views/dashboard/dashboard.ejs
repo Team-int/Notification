@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Notification</title>
 </head>
 <body>
-    <nav class="uk-background-secondary uk-light" uk-navbar>
-        <div class="uk-navbar-left">
-            <a class="uk-navbar-item uk-logo" href="/">Notification</a>
-            <ul class="uk-navbar-nav">
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Github</a></li>
-            </ul>
+    <%- include('components/Header') -%> 
+    
+    <div class="content">
+        <p class="title">Select a Server</p>
+        <hr id="line"><br><br>
+        <div class="guilds-container">
+          <% for (let guild of guilds) { %> 
+            <div class="guild-item">
+                <img src="<%= guild.icon %>" class="img-round">
+                <p class="lead guild-name"><%= guild.name %></p><br>
+                <a class="btn btn-discord" href="/dashboard/<%= guild.id %>">Select</a>
+            </div>
+          <% } %> 
         </div>
-        <div class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
-                <li>
-                    <button class="uk-button uk-button-danger">Logout</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <h1><%= guilds[0].name %></h1>
-    <img src="<%= guilds[0].icon %>" alt="">
-   
+    </div>
 </body>
 </html>

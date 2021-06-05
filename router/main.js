@@ -45,7 +45,6 @@ module.exports =
           ctx.beginPath()
           ctx.arc(canvas.width, canvas.height, 100, 0, Math.PI * 2, true)
           ctx.stroke()
-          ctx.closePath()
         }
         
         vaildGuild.push({

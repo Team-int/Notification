@@ -5,6 +5,10 @@
   "repository": "https://github.com/Team-int/Notification.git",
   "author": "sujang958 <enter7377@naver.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "tailwind:css": "npx postcss public/css/tailwind.css -o public/css/style.css"
+  },
   "dependencies": {
     "canvas": "^2.8.0",
     "discord.js": "^12.5.3",
@@ -12,6 +16,12 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "oauth-discord": "^1.4.5"
+    "oauth-discord": "^1.4.5",
+    "postcss-cli": "^8.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.4"
   }
 }
