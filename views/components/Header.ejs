@@ -1,14 +1,14 @@
-<div class="flex">
-    <a class="p-2" href="/">Notification</a>
-    <ul class="flex flex-row">
-        <li class="p-2"><a href="#">Support</a></li>
-        <li class="p-2"><a href="#">Github</a></li>
+<div class="flex items-stretch bg-gray-800 text-gray-200 pb-1">
+    <a class="p-2 pl-6 font-bold text-2xl self-center" href="/">Notification</a>
+    <ul class="px-4 flex flex-row font-bold text-1xl">
+        <li class="self-center"><a href="#">Support</a></li>
+        <li class="pl-4 self-center"><a href="#">Github</a></li>
     </ul>
-    <div class="p-2">
+    <div class="self-center font-bold text-1xl">
         <% if (user) { %> 
             <a class="" href="/dashboard">Dashboard</a>
         <% } else { %> 
-            <a class="" href="//discord.com/api/oauth2/authorize?client_id=850394280056324106&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20guilds">Login with Discord</a>
+            <a class="" href="//discord.com/api/oauth2/authorize?client_id=850394280056324106&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20guilds">Login</a>
         <% } %>
     </div>
 </div>
