@@ -3,6 +3,7 @@ const PORT = process.env.PORT || 3000
 
 const express = require('express')
 const session = require('express-session')
+const client = new (require('discord.js').Client)
 const app = express()
 
 app.set('view engine', 'ejs')
@@ -15,13 +16,9 @@ app.use(session({
   secret: process.env.SECRET
 }))
 
-app.get('/', async (req, res) => {
-  if (req.session.user) 
-    res.render('index', { user: true })
-  else
-    res.render('index', { user: false })
-})
+require('./router/main')(client, app)
 
+client.login(process.env.BOT_TOKEN)
 app.listen(PORT, () => {
   console.log(`Web server listening on port ${PORT}`)
 })

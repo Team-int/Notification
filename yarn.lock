@@ -82,6 +82,11 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
+btoa@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/btoa/-/btoa-1.2.1.tgz#01a9909f8b2c93f6bf680ba26131eb30f7fa3d73"
+  integrity sha512-SB4/MIGlsiVkMcHmT+pSmIPoNDoHg+7cMzmt3Uxt628MTz2487DKSqK/fuhFBrkuqrYv5UCEnACpF4dTFNKc/g==
+
 bytes@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
@@ -427,6 +432,14 @@ node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
+
+oauth-discord@^1.4.5:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/oauth-discord/-/oauth-discord-1.4.5.tgz#e61aa68aa11d617538b944d204b8afdd890eb541"
+  integrity sha512-+F8dwS4U2s+xg7RvTRqcFpFvIj+dzzqkN0B7fpqS1QVHaWv8+0RLRsSSbOEHPdK5gnjfF9O3Cp44KQYgZPK/5g==
+  dependencies:
+    btoa "^1.2.1"
+    node-fetch "^2.6.1"
 
 on-finished@~2.3.0:
   version "2.3.0"
