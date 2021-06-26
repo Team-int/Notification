@@ -16,11 +16,15 @@
         <hr id="line"><br><br>
         <div class="guilds-container">
           <% for (let guild of guilds) { %> 
-            <div class="guild-item">
+            <div class="guild-item shadow-2xl">
                 <img src="<%= guild.icon %>" class="img-round">
                 <p class="lead guild-name"><%= guild.name %></p><br>
-                <a class="btn btn-discord" href="/dashboard/<%= guild.id %>">Select</a>
-            </div>
+                <% if (!guild.invited) { %>
+                  <a class="btn bg-green" target="_blank" href="//discord.com/api/oauth2/authorize?client_id=850394280056324106&permissions=268823632&scope=bot&guild_id=<%= guild.id %>">초대</a>
+                <% } else {%>
+                  <a class="btn btn-discord" href="/dashboard/<%= guild.id %>">설정</a>
+                <% } %> 
+                </div>
           <% } %> 
         </div>
     </div>

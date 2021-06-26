@@ -29,13 +29,13 @@ module.exports =
     const guilds = await Oauth.userGuilds(req.session.token.access_token)
     const vaildGuild = []
 
-    guilds.map(async g => {
+    for (let g of guilds) {
       if (g.permissions == 137438953471) {
         const canvas = Canvas.createCanvas(64, 64)
         const ctx = canvas.getContext('2d')
         if (g.icon) {
           const icon = await Canvas.loadImage(`https://cdn.discordapp.com/icons/${g.id}/${g.icon}.jpg?size=128`)
-          ctx.drawImage(icon, 25, 25, canvas.width, canvas.height)
+          ctx.drawImage(icon, 0, 0, canvas.width, canvas.height)
         } else {
           ctx.fillStyle = '#2c2f33'
           ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -51,13 +51,33 @@ module.exports =
           id: g.id,
           name: g.name,
           icon: canvas.toDataURL(),
+          invited: client.guilds.cache.has(g.id),
         })
       }
-    })
+    }
 
     if (!user)
       return res.redirect(`/redirect.html?message=${encodeURIComponent('봇이 접근할 수 있는 유저가 아닙니다')}&url=${encodeURIComponent(process.env.LOGIN_URI)}`)
 
     res.render('dashboard/dashboard', {guilds: vaildGuild})
+  })
+
+  app.get('/dashboard/:guild_id', async (req, res) => {
+    const { guild_id } = req.params
+
+    if (!guild_id)
+      return res.redirect('/dashboard')
+    if (!req.session.token || !req.session.user_id )
+      return res.redirect(process.env.LOGIN_URI)
+    if (req.session.logged_on + req.session.token.expires_in >= Date.now() - 100)
+      await getNewToken(req)
+
+    const guild = client.guilds.cache.get(guild_id)
+
+    res.render('dashboard/guild', {
+      guild: {
+        name: guild.name
+      }
+    })
   })
 }  

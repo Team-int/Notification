@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/guild.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Notification</title>
+</head>
+<body class="text-white text-center md:text-center">
+    <%- include('../components/Header', {user: true}); -%> 
+    
+    <div class="content">
+        <p class="text-4xl m-20"><%= guild.name %></p><br><br>
+        <div class="mr-10 ml-10 grid grid-flow-col auto-cols-max md:auto-cols-max grid-flow-row auto-rows-max md:auto-rows-min gap-4">
+            <div class="bg-gray-700 rounded-lg p-6 shadow">
+                <p class="text-2xl m-2">✋ 인사</p><br>
+            </div>
+            <div class="bg-gray-700 rounded-lg p-6 shadow">
+                <p class="text-2xl m-2">👋 작별인사</p><br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

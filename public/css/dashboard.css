@@ -18,8 +18,8 @@ html, body {
 #line {
   margin-top: 40px;
   background-color: #fff;
-  margin-left: 18em;
-  margin-right: 18em;
+  margin-left: 14em;
+  margin-right: 14em;
 }
 
 .guilds-container {
@@ -27,16 +27,33 @@ html, body {
   margin-left: 24em;
   margin-right: 24em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10%, auto));
-grid-template-rows: 200px 200px 200px;
+  grid-template-columns: repeat(auto-fill, 225px);
+  grid-template-rows: repeat(auto-fill, 225px);
   gap: 25px 25px;
 }
 
+.bg-green {
+  background-color: #2b9b3e;
+  color: #fff;
+}
+
+@media only screen and (max-width: 320px) {
+  .guilds-container {
+    margin-top: 15px;
+    margin-left: 20em;
+    margin-right: 20em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-rows: repeat(auto-fill, 100px);
+    gap: 25px 25px;
+  }
+}
+
 .guild-item {
-  border: 2px solid #000;
   border-radius: 10px;
-  padding: 8px;
+  padding: 13px;
   overflow: auto;
+  background-color: #31353a;
 }
 
 .guild-item p.guild-name {
